@@ -1,7 +1,7 @@
 module PostsHelper
   def published(post)
     if post.published_at.present?
-      "Published #{post.published_at.strftime('%-b %-d, %Y')}"
+      post.published_at.strftime('%-b %-d, %Y')
     else
       'Not published yet'
     end

@@ -4,16 +4,36 @@
     <title>BlogOnEm</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="/dist/output.css" rel="stylesheet">
+
   </head>
 
-  <header>WELCOME TO SHANE'S BLOG</header>
+  <header>
+    <div>
+      <h1 class="text-3xl font-bold mb-10">
+        SHANE'S SWEET BLOG
+      </h1>
+    </div>
+  </header>
+
   <body>
-    <div class="content">
+    <div >
       <%= yield %>
     </div>
   </body>
-  <footer>Made by Shane!</footer>
+
+  <footer>
+    
+    <div>
+      <h3>
+
+        Made by Shane!
+      </h3>
+    </div>
+  
+  </footer>
 </html>
