@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <title>BlogOnEm</title>
     <%= csrf_meta_tags %>
@@ -9,31 +9,52 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="/dist/output.css" rel="stylesheet">
-
   </head>
 
-  <header>
-    <div>
-      <h1 class="text-3xl font-bold mb-10">
-        SHANE'S SWEET BLOG
-      </h1>
-    </div>
-  </header>
-
-  <body>
-    <div >
-      <%= yield %>
-    </div>
+  <body class="flex flex-col h-full container mx-auto">
+    <header>
+      <nav class="bg-sky-850 mb-5">
+        <div class="mx-auto max-w-7xl lg:px-8">
+          <div class="flex items-center justify-between flex-row">
+            <%= link_to root_path do %>
+            <div class="flex items-center">
+              <div class="flex items-center">
+                <div class="rounded-full overflow-hidden mr-3">
+                  <%= image_tag("me") %>
+                </div>
+                <h2>SHANE'S SWEET BLOG</h2>
+              </div>
+            </div>
+            <% end %>
+            <div class="flex items-center space-x-4">
+              <a
+                href="/"
+                class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                aria-current="page"
+                >Posts</a
+              >
+              <a
+                href="#"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                >Link2</a
+              >
+              <a
+                href="#"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                >Link3</a
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="flex-grow">
+      <div class="mx-auto container max-w-5xl"><%= yield %></div>
+    </main>
+    <footer class="mt-auto">
+      <div class="mx-auto">
+        <div>&copy; 2023 Shane Schmaltz. All rights reserved.</div>
+      </div>
+    </footer>
   </body>
-
-  <footer>
-    
-    <div>
-      <h3>
-
-        Made by Shane!
-      </h3>
-    </div>
-  
-  </footer>
 </html>
