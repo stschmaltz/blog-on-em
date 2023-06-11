@@ -1,3 +1,12 @@
+<section class="admin">
+  <div class="flex justify-end">
+    <%= link_to edit_post_path(@post), class: "mb-4 px-6 py-2 border
+    border-transparent text-base font-medium rounded-md text-white bg-indigo-600
+    hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2
+    focus:ring-indigo-500" do %> Edit Post <% end %>
+  </div>
+</section>
+
 <section>
   <div class="text-gray-100 mb-5">
     <div class="px-10 py-6 rounded-lg shadow-sm dark:bg-sky-950 min-h-[50vh]">
@@ -16,14 +25,5 @@
         <p class="mt-2 whitespace-pre-wrap"><%= @post.body %></p>
       </div>
     </div>
-  </div>
-</section>
-
-<section>
-  <div class="flex justify-start">
-    <%= link_to edit_post_path(@post), class: "px-10 py-2 border
-    border-transparent text-base font-medium rounded-md text-white bg-indigo-600
-    hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2
-    focus:ring-indigo-500" do %> Edit <% end %>
   </div>
 </section>

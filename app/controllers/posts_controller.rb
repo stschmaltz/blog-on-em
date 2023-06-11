@@ -13,10 +13,25 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find_by(id: params[:id])
-    post_params = params.require(:post).permit(:title, :body, :published_at)
 
     post.update(post_params)
 
     redirect_to post_path(post)
+  end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    post = Post.create(post_params)
+
+    redirect_to post_path(post)
+  end
+
+  private # Everything below this line is private
+
+  def post_params
+    params.require(:post).permit(:title, :body, :published_at)
   end
 end
