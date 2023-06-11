@@ -13,7 +13,7 @@
             ><%= published(@post) %></span
           >
         </div>
-        <p class="mt-2"><%= @post.body %></p>
+        <p class="mt-2 whitespace-pre-wrap"><%= @post.body %></p>
       </div>
     </div>
   </div>
@@ -21,6 +21,9 @@
 
 <section>
   <div class="flex justify-start">
-    <%= link_to edit_post_path(@post), class: "px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" do %> Edit <% end %>
+    <%= link_to edit_post_path(@post), class: "px-10 py-2 border
+    border-transparent text-base font-medium rounded-md text-white bg-indigo-600
+    hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2
+    focus:ring-indigo-500" do %> Edit <% end %>
   </div>
 </section>
