@@ -12,79 +12,14 @@
   </head>
 
   <body class="flex flex-col h-full container mx-auto">
-    <header>
-      <nav class="fixed bg-sky-850">
-        <div class="mx-auto max-w-7xl">
-          <div class="flex items-center justify-between flex-row">
-            <%= link_to root_path do %>
-            <div class="flex items-center">
-              <div class="flex items-center">
-                <div class="rounded-full overflow-hidden mr-3 w-20 h-20">
-                  <%= image_tag("logo") %>
-                </div>
-              </div>
-            </div>
-            <% end %>
-            <div class="hidden md:flex items-center space-x-4">
-              <a
-                href="/"
-                class="bg-gray-900 text-white rounded-md px-3 py-2 text-lg font-medium"
-                aria-current="page"
-                >Posts</a
-              >
-              <a
-                href="#"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"
-                >Link2</a
-              >
-              <a
-                href="#"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"
-                >Link3</a
-              >
-            </div>
-            <div class="md:hidden">
-              <button class="text-white hover:text-gray-400 focus:outline-none">
-                <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
-                  <path
-                    fill-rule="evenodd"
-                    d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <%= render "layouts/header" %>
+
     <main class="flex-grow">
       <div class="mx-auto max-h-[85vh] overflow-auto container max-w-5xl mt-28">
         <%= yield %>
       </div>
     </main>
-    <footer class="mt-auto bg-sky-850 text-white py-4">
-      <div class="mx-auto max-w-7xl">
-        <div>&copy; 2023 Shane Schmaltz. All rights reserved.</div>
-      </div>
-    </footer>
-    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-sky-850 text-white py-2">
-      <div class="mx-auto max-w-7xl flex justify-between items-center px-4">
-        <%= link_to root_path do %>
-        <div class="flex items-center">
-          <div class="rounded-full overflow-hidden mr-3 w-12 h-12">
-            <%= image_tag("logo") %>
-          </div>
-        </div>
-        <% end %>
-        <button class="text-white hover:text-gray-400 focus:outline-none">
-          <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
-            <path
-              fill-rule="evenodd"
-              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-            ></path>
-          </svg>
-        </button>
-      </div>
-    </div>
+
+    <%= render "layouts/footer" %>
   </body>
 </html>

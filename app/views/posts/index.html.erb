@@ -11,36 +11,8 @@
 <ul>
   <% @posts.each do |post| if post.published_at && post.published_at < Time.now
   %>
-  <li>
-    <div class="text-gray-100 mb-5">
-      <div class="px-8 py-4 mx-auto rounded-lg shadow-sm dark:bg-sky-950">
-        <div class="mt-3">
-          <%= link_to post.title, post_path(post), class:'text-2xl font-bold
-          hover:underline' %>
-          <div class="flex">
-            <span class="text-sm dark:text-gray-400"
-              ><%= published(post) %></span
-            >
-          </div>
-          <p class="mt-2"><%= truncate(post.body, {length:300}) %></p>
-        </div>
-        <div class="flex items-center justify-between mt-4">
-          <%= link_to 'Read More', post_path(post), class:'hover:underline
-          dark:text-violet-500' %>
-          <div>
-            <div class="flex items-center">
-              <div class="rounded-full overflow-hidden mr-3">
-                <%= image_tag("me") %>
-              </div>
-              <span class="hover:underline dark:text-gray-400"
-                >Shane Schmaltz</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </li>
+  <%= render "post_list_item", post: post %>
+
 
   <% end %> <% end %>
 </ul>
@@ -49,35 +21,7 @@
 <ul>
   <% @posts.each do |post| if post.published_at.nil? || post.published_at >
   Time.now %>
-  <li>
-    <div class="text-gray-100 mb-5">
-      <div class="px-8 py-4 mx-auto rounded-lg shadow-sm dark:bg-sky-950">
-        <div class="mt-3">
-          <%= link_to post.title, post_path(post), class:'text-2xl font-bold
-          hover:underline' %>
-          <div class="flex">
-            <span class="text-sm dark:text-gray-400"
-              ><%= published(post) %></span
-            >
-          </div>
-          <p class="mt-2"><%= post.body %></p>
-        </div>
-        <div class="flex items-center justify-between mt-4">
-          <%= link_to 'Read More', post_path(post), class:'hover:underline
-          dark:text-violet-500' %>
-          <div>
-            <div class="flex items-center">
-              <div class="rounded-full overflow-hidden mr-3">
-                <%= image_tag("me") %>
-              </div>
-              <span class="hover:underline dark:text-gray-400"
-                >Shane Schmaltz</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </li>
+  <%= render "post_list_item", post: post %>
+
   <% end %> <% end %>
 </ul>
