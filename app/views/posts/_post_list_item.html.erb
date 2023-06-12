@@ -14,12 +14,19 @@
         dark:text-violet-500' %>
         <div>
           <div class="flex items-center">
-            <div class="rounded-full overflow-hidden mr-3">
+            <!-- show array of tags -->
+            <% post.tags&.each do |tag| %>
+            <span
+              class="px-2 py-1 mx-1 text-xs font-bold text-gray-100 bg-gray-600 rounded-full dark:bg-gray-700"
+              ><%= tag %></span
+            >
+            <% end %>
+            <!-- <div class="rounded-full overflow-hidden mr-3">
               <%= image_tag("me") %>
             </div>
             <span class="hover:underline dark:text-gray-400"
               >Shane Schmaltz</span
-            >
+            > -->
           </div>
         </div>
       </div>

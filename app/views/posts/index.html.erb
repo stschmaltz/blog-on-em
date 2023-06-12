@@ -9,19 +9,18 @@
 
 <h1 class="text-2xl font-bold hover:underline">Published Posts</h1>
 <ul>
-  <% @posts.each do |post| if post.published_at && post.published_at < Time.now
-  %>
+  <% @published_posts.each do |post| %>
+  <!--  -->
   <%= render "post_list_item", post: post %>
-
-
-  <% end %> <% end %>
+  <!--  -->
+  <% end %>
 </ul>
 
 <h1 class="text-2xl font-bold hover:underline">Unpublished Posts</h1>
 <ul>
-  <% @posts.each do |post| if post.published_at.nil? || post.published_at >
-  Time.now %>
+  <% @unpublished_posts.each do |post| %>
+  <!--  -->
   <%= render "post_list_item", post: post %>
-
-  <% end %> <% end %>
+  <!--  -->
+  <% end %>
 </ul>
