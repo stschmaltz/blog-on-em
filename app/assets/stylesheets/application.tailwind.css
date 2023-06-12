@@ -11,6 +11,16 @@
 }
 
 */
-html {
-  @apply text-gray-100 bg-gray-900 p-5;
-}
+
+  html {
+    @apply text-gray-100 bg-gray-900 p-5;
+  }
+  
+  /* Highlight form fields with errors */
+  .field_with_errors label {
+      @apply text-red-500;
+  }
+  .field_with_errors input {
+      @apply border-red-500 border-4;
+  }
+  

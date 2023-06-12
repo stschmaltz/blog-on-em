@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   serialize :tags, Array
+  validates :title, presence: true
 
   def self.published
     where('published_at < ? AND published_at IS NOT NULL', timestamp)

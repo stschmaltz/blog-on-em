@@ -13,13 +13,14 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = find_post_by_id
-    if post.update(post_params)
-      post.tags = params[:post][:tags].split(',')
-      post.save
+    @post = find_post_by_id
+    @post.tags = params[:post][:tags]&.split(',')
+
+    if @post.update(post_params)
+      redirect_to post_path(post)
+    else
+      render :edit
     end
-    # TODO: put error handling if update fails here
-    redirect_to post_path(post)
   end
 
   def new
@@ -27,10 +28,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    post.tags = params[:post][:tags].split(', ')
-    post.save
-    redirect_to post_path(post)
+    @post = Post.new(post_params)
+    @post.tags = params[:post][:tags]&.split(', ')
+
+    if @post.save
+      redirect_to post_path(post)
+    else
+      render :new
+    end
   end
 
   def destroy
