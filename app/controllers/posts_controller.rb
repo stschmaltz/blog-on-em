@@ -14,9 +14,11 @@ class PostsController < ApplicationController
 
   def update
     post = find_post_by_id
-
-    post.update(post_params)
-
+    if post.update(post_params)
+      post.tags = params[:post][:tags].split(',')
+      post.save
+    end
+    # TODO: put error handling if update fails here
     redirect_to post_path(post)
   end
 
@@ -25,16 +27,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.create(post_params)
-
+    post = Post.new(post_params)
+    post.tags = params[:post][:tags].split(', ')
+    post.save
     redirect_to post_path(post)
   end
 
   def destroy
     post = find_post_by_id
-
     post.destroy
-
     redirect_to posts_path
   end
 
