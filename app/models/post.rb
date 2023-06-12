@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  has_many :comments, dependent: :destroy
+
   serialize :tags, Array
   validates :title, presence: true
 
