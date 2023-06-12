@@ -1,9 +1,15 @@
 <section class="admin">
   <div class="flex justify-end">
+    <%= link_to post_path(@post), method: :delete, data: { confirm: "Confirm you
+    want to delete this post." }, class: "mb-4 mr-5 px-6 py-2 border
+    border-transparent text-base font-medium rounded-md text-white bg-rose-800
+    hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2
+    focus:ring-rose-500" do %> Delete <% end %>
+    <!--  -->
     <%= link_to edit_post_path(@post), class: "mb-4 px-6 py-2 border
     border-transparent text-base font-medium rounded-md text-white bg-indigo-600
     hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2
-    focus:ring-indigo-500" do %> Edit Post <% end %>
+    focus:ring-indigo-500" do %> Edit <% end %>
   </div>
 </section>
 
