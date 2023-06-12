@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post.tags = params[:post][:tags]&.split(',')
 
     if @post.update(post_params)
-      redirect_to post_path(post)
+      redirect_to post_path(@post), notice: 'Post updated successfully'
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     @post.tags = params[:post][:tags]&.split(', ')
 
     if @post.save
-      redirect_to post_path(post)
+      redirect_to post_path(post), notice: 'Post created successfully'
     else
       render :new
     end
