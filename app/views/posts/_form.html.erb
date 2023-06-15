@@ -1,18 +1,5 @@
 <div class="text-gray-700">
-  <% if post.errors.any? %>
-    <div
-    class="error-notice bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
-  >
-      <strong class="font-bold">
-        <%= "Error".pluralize(post.errors.count) %>
-      </strong>
-      <ul class="mt-1">
-        <% @post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "shared/form_errors", errors:post.errors %>
   <%= form_with(model: post, local: true, class: 'flex flex-col') do |f| %>
     <div class="mb-4">
       <%= f.label :title, class: 'block text-gray-400 font-bold mb-2' %>
@@ -42,10 +29,7 @@
       </div>
     </div>
     <div class="flex justify-start">
-      <%= f.submit button_text, class: 'inline-flex items-center px-4 py-2 border
-    border-transparent text-base font-medium rounded-md text-white bg-indigo-600
-    hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2
-    focus:ring-indigo-500' %>
+      <%= f.submit button_text, class: 'inline-flex items-center button-basic' %>
     </div>
   <% end %>
 </div>

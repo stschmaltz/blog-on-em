@@ -3,7 +3,7 @@
   >
   <h2 class="text-2xl font-bold hover:underline mb-2">Comments (<%= count %>)</h2>
   <div class="max-h-[50vh] overflow-auto">
-    <% comments.select(&:persisted?).each do |comment| %>
+    <% comments&.select(&:persisted?)&.each do |comment| %>
       <p class="mt-2"><%= comment.content %></p>
       <div class="flex items-center justify-between mb-6 mt-2">
         <div class="flex items-center">

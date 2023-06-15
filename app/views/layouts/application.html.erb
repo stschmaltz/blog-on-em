@@ -11,14 +11,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="/dist/output.css" rel="stylesheet" />
   </head>
-  <body class="flex flex-col h-full container mx-auto">
+  <body class="h-full">
     <%= render "layouts/header" %>
-    <main class="flex-grow">
-      <div class="mx-auto max-h-[85vh] overflow-auto container max-w-5xl mt-28">
-        <%= render "layouts/flash" %>
-        <%= yield %>
-      </div>
-    </main>
-    <%= render "layouts/footer" %>
+    <div class="h-full flex flex-col container mx-auto">
+      <main class="flex-grow">
+        <div class="mx-auto max-h-[85vh] overflow-auto container max-w-5xl mt-28">
+          <%= render "layouts/flash" %>
+          <%= yield %>
+        </div>
+      </main>
+      <%= render "layouts/footer" %>
+    </div>
   </body>
 </html>

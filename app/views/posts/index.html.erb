@@ -1,18 +1,15 @@
 <section class="admin">
   <div class="flex justify-end">
-    <%= link_to new_post_path, class: "px-4 py-2 border border-transparent
-    text-base font-medium rounded-md text-white bg-indigo-600
-    hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2
-    focus:ring-indigo-500" do %>Create New Post <% end %>
+    <%= link_to new_post_path, class: "button-basic" do %>Create New Post <% end %>
   </div>
 </section>
-<h1 class="text-2xl font-bold hover:underline">Published Posts</h1>
+<h2>Published Posts</h2>
 <ul>
   <% @published_posts.each do |post| %>
     <%= render "post_list_item", post: post %>
   <% end %>
 </ul>
-<h1 class="text-2xl font-bold hover:underline">Unpublished Posts</h1>
+<h2>Unpublished Posts</h2>
 <ul>
   <% @unpublished_posts.each do |post| %>
     <%= render "post_list_item", post: post %>
