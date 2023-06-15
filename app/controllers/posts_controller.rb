@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   def show
     @post = find_post_by_id
     @comment = Comment.new
+    @comments = @post.comments.order(created_at: :desc)
   end
 
   def edit

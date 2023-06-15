@@ -13,7 +13,7 @@
 </section>
 <section>
   <div class="text-gray-100 mb-5">
-    <div class="px-10 py-6 rounded-lg shadow-sm dark:bg-sky-950 min-h-[50vh]">
+    <div class="px-10 py-6 rounded-lg shadow-sm dark:bg-sky-950 min-h-[70vh]">
       <div class="mt-3">
         <a
           rel="noopener noreferrer"
@@ -41,6 +41,6 @@
   </div>
 </section>
 <section>
-  <%= render 'comments/list', comments: @post.comments%>
+  <%= render 'comments/list', comments: @comments%>
   <%= render 'comments/form', post: @post, comment: @comment, button_text:"Save" %>
 </section>
