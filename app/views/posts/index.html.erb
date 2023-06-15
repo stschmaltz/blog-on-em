@@ -6,21 +6,15 @@
     focus:ring-indigo-500" do %>Create New Post <% end %>
   </div>
 </section>
-
 <h1 class="text-2xl font-bold hover:underline">Published Posts</h1>
 <ul>
   <% @published_posts.each do |post| %>
-  <!--  -->
-  <%= render "post_list_item", post: post %>
-  <!--  -->
+    <%= render "post_list_item", post: post %>
   <% end %>
 </ul>
-
 <h1 class="text-2xl font-bold hover:underline">Unpublished Posts</h1>
 <ul>
   <% @unpublished_posts.each do |post| %>
-  <!--  -->
-  <%= render "post_list_item", post: post %>
-  <!--  -->
+    <%= render "post_list_item", post: post %>
   <% end %>
 </ul>

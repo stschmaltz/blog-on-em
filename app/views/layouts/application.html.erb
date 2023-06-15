@@ -3,28 +3,22 @@
   <head>
     <title>BlogOnEm</title>
     <%= csrf_meta_tags %>
-    <!--  -->
     <%= csp_meta_tag %>
-    <!--  -->
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track":
     "reload" %>
-    <!--  -->
     <%= stylesheet_link_tag 'application', media: 'all',
     'data-turbolinks-track': 'reload' %>
-    <!--  -->
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="/dist/output.css" rel="stylesheet" />
   </head>
-
   <body class="flex flex-col h-full container mx-auto">
     <%= render "layouts/header" %>
-
     <main class="flex-grow">
       <div class="mx-auto max-h-[85vh] overflow-auto container max-w-5xl mt-28">
-        <%= render "layouts/flash" %> <%= yield %>
+        <%= render "layouts/flash" %>
+        <%= yield %>
       </div>
     </main>
-
     <%= render "layouts/footer" %>
   </body>
 </html>

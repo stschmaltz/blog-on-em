@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = find_post_by_id
+    @comment = Comment.new
   end
 
   def edit

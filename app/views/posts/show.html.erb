@@ -5,14 +5,12 @@
     border-transparent text-base font-medium rounded-md text-white bg-rose-800
     hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2
     focus:ring-rose-500" do %> Delete <% end %>
-    <!--  -->
     <%= link_to edit_post_path(@post), class: "mb-4 px-6 py-2 border
     border-transparent text-base font-medium rounded-md text-white bg-indigo-600
     hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2
     focus:ring-indigo-500" do %> Edit <% end %>
   </div>
 </section>
-
 <section>
   <div class="text-gray-100 mb-5">
     <div class="px-10 py-6 rounded-lg shadow-sm dark:bg-sky-950 min-h-[50vh]">
@@ -30,15 +28,19 @@
         </div>
         <div class="mt-2 mb-5">
           <% @post.tags&.each do |tag| %>
-          <span
+            <span
             class="px-2 mr-2 py-1 text-xs font-bold text-gray-100 bg-gray-600 rounded-full dark:bg-gray-700"
           >
-            <%= tag %>
-          </span>
+              <%= tag %>
+            </span>
           <% end %>
         </div>
         <p class="mt-2 whitespace-pre-wrap"><%= @post.body %></p>
       </div>
     </div>
   </div>
+</section>
+<section>
+  <%= render 'comments/list', comments: @post.comments%>
+  <%= render 'comments/form', post: @post, comment: @comment, button_text:"Save" %>
 </section>
