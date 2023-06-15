@@ -41,6 +41,6 @@
   </div>
 </section>
 <section>
-  <%= render 'comments/list', comments: @comments%>
+  <%= render 'comments/list', comments: @comments, count: @post.comment_count%>
   <%= render 'comments/form', post: @post, comment: @comment, button_text:"Save" %>
 </section>

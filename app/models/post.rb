@@ -17,4 +17,8 @@ class Post < ApplicationRecord
   def self.timestamp
     Time.now
   end
+
+  def comment_count
+    comments.count
+  end
 end
