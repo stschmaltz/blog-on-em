@@ -22,6 +22,18 @@ h3 {
   width: inherit;
 }
 
+.form-input {
+  @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+}
+
+.form-input-selector {
+  @apply mt-1 mr-3 block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ringfocus:ring-indigo-200 focus:ring-opacity-50 px-30;
+}
+
+.form-label {
+  @apply block text-gray-400 font-bold mb-2;
+}
+
 .field_with_errors label {
   @apply text-red-500;
 }
