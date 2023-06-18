@@ -43,5 +43,5 @@ h3 {
 }
 
 .button-delete {
-  @apply px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-rose-800 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500;
+  @apply flex justify-center px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-rose-800 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500;
 }
