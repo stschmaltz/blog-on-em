@@ -18,9 +18,13 @@
             aria-current="page"
             >Posts</a
           >
-          <%= link_to "Sign Up", signup_path, class:"button-basic"%>
+          <div class="flex">
+            <%= link_to "Sign In", new_session_path, class:"button-basic mr-4"%>
+            <%= link_to "Sign Up", signup_path, class:"button-basic"%>
+          </div>
         </div>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
 </header>
