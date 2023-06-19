@@ -1,7 +1,9 @@
 <section class="admin">
-  <div class="flex justify-end">
-    <%= link_to new_post_path, class: "button-basic" do %>Create New Post <% end %>
-  </div>
+  <% if current_user_admin? %>
+    <div class="flex justify-end">
+      <%= link_to new_post_path, class: "button-basic" do %>Create New Post <% end %>
+    </div>
+  <% end %>
 </section>
 <h2>Published Posts</h2>
 <ul>

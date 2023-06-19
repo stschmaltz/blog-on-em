@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_action :require_sign_in, except: %i[index show]
+  before_action :require_admin, except: %i[index show]
+
   def index
     @published_posts = Post.published
     @unpublished_posts = Post.unpublished

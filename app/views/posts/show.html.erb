@@ -1,9 +1,11 @@
-<section class="admin">
-  <div class="flex justify-end">
-    <%= link_to post_path(@post), method: :delete, data: { confirm: "Confirm you want to delete this post." }, class: "mb-4 mr-5 button-delete" do %> Delete <% end %>
-    <%= link_to edit_post_path(@post), class: "mb-4 button-basic w-24" do %> Edit <% end %>
-  </div>
-</section>
+<%if current_user_admin?%>
+  <section class="admin">
+    <div class="flex justify-end">
+      <%= link_to post_path(@post), method: :delete, data: { confirm: "Confirm you want to delete this post." }, class: "mb-4 mr-5 button-delete" do %> Delete <% end %>
+      <%= link_to edit_post_path(@post), class: "mb-4 button-basic w-24" do %> Edit <% end %>
+    </div>
+  </section>
+<% end %>
 <section>
   <div class="text-gray-100 mb-5">
     <div class="px-10 py-6 rounded-lg shadow-sm dark:bg-sky-950 min-h-[70vh]">
