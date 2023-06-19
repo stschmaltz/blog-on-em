@@ -9,9 +9,11 @@ class SessionsController < ApplicationController
     else
       flash.now[:alert] = 'Invalid email or password'
       render :new
-
     end
   end
 
-  def destroy; end
+  def destroy
+    user_sign_out
+    redirect_to posts_url, notice: 'Logged out successfully'
+  end
 end

@@ -19,8 +19,15 @@
             >Posts</a
           >
           <div class="flex">
-            <%= link_to "Sign In", new_session_path, class:"button-basic mr-4"%>
-            <%= link_to "Sign Up", signup_path, class:"button-basic"%>
+            <% if current_user %>
+              <h3>
+                <%= link_to "Hello #{current_user.name}", current_user, class:"mr-4" %>
+              </h3>
+              <%= link_to "Sign Out", session_path, method: :delete, class:"button-basic"%>
+            <% else%>
+              <%= link_to "Sign In", new_session_path, class:"button-basic mr-4"%>
+              <%= link_to "Sign Up", signup_path, class:"button-basic"%>
+            <% end %>
           </div>
         </div>
       </div>

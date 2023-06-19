@@ -38,6 +38,9 @@ class UsersController < ApplicationController
   def destroy
     @user = find_user_by_id
     @user.destroy
+
+    user_sign_out
+
     redirect_to posts_url, alert: 'Account deleted successfully'
   end
 
