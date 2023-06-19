@@ -8,11 +8,8 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.user = @user
 
-    if @comment.save
-      redirect_to post_path(@post, anchor: 'comment-form')
-    else
-      render 'posts/show', anchor: 'comment-form'
-    end
+    @comment.save
+    redirect_to post_path(@post, anchor: 'comment-form')
   end
 
   def destroy

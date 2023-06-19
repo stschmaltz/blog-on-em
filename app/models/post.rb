@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
+  has_many :post_likes, dependent: :destroy
+  has_many :user_likes, through: :post_likes, source: :user
 
   serialize :tags, Array
   validates :title, presence: true

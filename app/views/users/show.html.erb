@@ -7,7 +7,6 @@
     <%= link_to edit_user_path(@user), class: "mb-4 button-basic w-24" do %> Edit <% end %>
   </div>
 <% end %>
-<%# show users comments here if they have any %>
 <% if @user.comments.any? %>
   <div class="mt-5">
     <h2 class="mb-3">Comments</h2>

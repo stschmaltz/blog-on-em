@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :post_likes
   root 'posts#index'
 
   resources :posts do
