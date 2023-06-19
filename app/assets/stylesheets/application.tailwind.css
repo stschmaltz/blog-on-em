@@ -17,6 +17,9 @@ h2 {
 h3 {
   @apply text-2xl font-bold;
 }
+h4 {
+  @apply text-xl font-semibold;
+}
 
 .winherit {
   width: inherit;
@@ -27,7 +30,7 @@ h3 {
 }
 
 .form-input-selector {
-  @apply mt-1 mr-3 block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ringfocus:ring-indigo-200 focus:ring-opacity-50 px-30;
+  @apply mt-1 mr-3 block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-fit;
 }
 
 .form-label {

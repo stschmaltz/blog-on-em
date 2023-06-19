@@ -1,8 +1,12 @@
 class CommentsController < ApplicationController
+  before_action :require_sign_in
+
   def create
     @post = Post.find(params[:post_id])
+    @user = current_user
+
     @comment = @post.comments.new(comment_params)
-    @comment.name = 'Anonymous'
+    @comment.user = @user
 
     if @comment.save
       redirect_to post_path(@post, anchor: 'comment-form')
