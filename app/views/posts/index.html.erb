@@ -10,16 +10,10 @@
 <%else%>
   <h2>Posts</h2>
 <% end %>
-<div class="flex flex-col items-start justify-start text-gray-500 my-2">
-  <%# <h5 class="mr-2 text-sm mb-0 font-semibold">Filter by tag</h4> %>
-  <form id="tag_filter_form" action="#" method="get">
-    <select name="filter" id="filter", class="form-input-selector">
-      <option value="">All Posts</option>
-      <% @tags.each do |tag| %>
-        <option value="<%= tag.name %>" <%= 'selected' if tag.name == params[:filter] %>><%= tag.name %></option>
-        <% end %>
-      </select>
-    </form>
+<div class="w-full">
+  <div class="flex flex-col items-start justify-start text-gray-500 my-2">
+    <%= tag_filter_dropdown(params[:filter]) %>
+    <%= tag_filter_javascript %>
   </div>
   <ul>
     <% @posts.each do |post| %>
@@ -34,13 +28,4 @@
       <% end %>
     </ul>
   <% end %>
-  <script>
-    document.getElementById('filter').addEventListener('change', function(event) {
-      var tag = event.target.value;
-      if(tag) {
-        window.location = '/posts/filter/' + tag;
-      } else {
-        window.location = '/posts';
-      }
-    });
-  </script>
+</div>
