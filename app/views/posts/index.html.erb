@@ -10,16 +10,37 @@
 <%else%>
   <h2>Posts</h2>
 <% end %>
-<ul>
-  <% @published_posts.each do |post| %>
-    <%= render "post_list_item", post: post %>
-  <% end %>
-</ul>
-<% if current_user_admin? %>
-  <h2>Unpublished Posts</h2>
+<div class="flex flex-col items-start justify-start text-gray-500 my-2">
+  <%# <h5 class="mr-2 text-sm mb-0 font-semibold">Filter by tag</h4> %>
+  <form id="tag_filter_form" action="#" method="get">
+    <select name="filter" id="filter", class="form-input-selector">
+      <option value="">All Posts</option>
+      <% @tags.each do |tag| %>
+        <option value="<%= tag.name %>" <%= 'selected' if tag.name == params[:filter] %>><%= tag.name %></option>
+        <% end %>
+      </select>
+    </form>
+  </div>
   <ul>
-    <% @unpublished_posts.each do |post| %>
+    <% @posts.each do |post| %>
       <%= render "post_list_item", post: post %>
     <% end %>
   </ul>
-<% end %>
+  <% if current_user_admin? %>
+    <h2>Unpublished Posts</h2>
+    <ul>
+      <% @unpublished_posts.each do |post| %>
+        <%= render "post_list_item", post: post %>
+      <% end %>
+    </ul>
+  <% end %>
+  <script>
+    document.getElementById('filter').addEventListener('change', function(event) {
+      var tag = event.target.value;
+      if(tag) {
+        window.location = '/posts/filter/' + tag;
+      } else {
+        window.location = '/posts';
+      }
+    });
+  </script>

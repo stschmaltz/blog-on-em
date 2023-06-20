@@ -3,8 +3,12 @@ class PostsController < ApplicationController
   before_action :require_admin, except: %i[index show]
 
   def index
-    @published_posts = Post.published
     @unpublished_posts = Post.unpublished
+    @tags = Tag.all
+
+    tag = params[:filter] && Tag.find_by(name: params[:filter])
+
+    @posts = tag ? Post.with_tag(tag.id).decending : Post.published
   end
 
   def show
@@ -19,7 +23,6 @@ class PostsController < ApplicationController
 
   def update
     @post = find_post_by_id
-    @post.tags = params[:post][:tags]&.split(',')
 
     if @post.update(post_params)
       redirect_to post_path(@post), notice: 'Post updated successfully'
@@ -34,10 +37,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.tags = params[:post][:tags]&.split(', ')
 
     if @post.save
-      redirect_to post_path(post), notice: 'Post created successfully'
+      redirect_to post_path(@post), notice: 'Post created successfully'
     else
       render :new
     end
@@ -52,7 +54,7 @@ class PostsController < ApplicationController
   private # Everything below this line is private
 
   def post_params
-    params.require(:post).permit(:title, :body, :published_at)
+    params.require(:post).permit(:title, :body, :published_at, tag_ids: [])
   end
 
   def find_post_by_id

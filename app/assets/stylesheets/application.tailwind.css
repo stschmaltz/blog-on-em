@@ -30,11 +30,26 @@ h4 {
 }
 
 .form-input-selector {
-  @apply mt-1 mr-3 block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-fit;
+  @apply block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-fit;
 }
 
 .form-label {
   @apply block text-gray-400 font-bold mb-2;
+}
+
+.form-check-boxes {
+  @apply flex flex-wrap;
+}
+
+.form-check-boxes label {
+  @apply text-gray-400 mr-4 font-bold;
+}
+.form-check-boxes input {
+  @apply mt-1 mr-1 block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+}
+
+.form-checkbox {
+  @apply mr-2;
 }
 
 .field_with_errors label {

@@ -21,7 +21,7 @@
         <div class="mt-2 mb-5">
           <% @post.tags&.each do |tag| %>
             <span class="px-2 mr-2 py-1 text-xs font-bold text-gray-100 bg-gray-600 rounded-full bg-gray-700">
-              <%= tag %>
+              <%= tag.name %>
             </span>
           <% end %>
         </div>
