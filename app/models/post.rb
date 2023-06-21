@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  before_save :set_slug
+
   has_many :comments, dependent: :destroy
   has_many :post_likes, dependent: :destroy
   has_many :user_likes, through: :post_likes, source: :user
@@ -6,7 +8,7 @@ class Post < ApplicationRecord
   has_many :post_taggings, dependent: :destroy
   has_many :tags, through: :post_taggings
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: { case_sensitive: false }
 
   scope :decending, -> { order(created_at: :desc) }
 
@@ -23,11 +25,21 @@ class Post < ApplicationRecord
     joins(:post_taggings).where(post_taggings: { tag_id: tag_id })
   }
 
+  def to_param
+    title.parameterize
+  end
+
   def self.timestamp
     Time.now
   end
 
   def comment_count
     comments.count
+  end
+
+  private
+
+  def set_slug
+    self.slug = title.parameterize
   end
 end

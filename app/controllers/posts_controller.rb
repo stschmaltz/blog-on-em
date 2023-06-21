@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :require_sign_in, except: %i[index show]
   before_action :require_admin, except: %i[index show]
+  before_action :set_post, only: %i[show edit update destroy]
 
   def index
     @unpublished_posts = Post.unpublished
@@ -12,18 +13,13 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = find_post_by_id
     @comment = Comment.new
     @comments = @post.comments.order(created_at: :desc)
   end
 
-  def edit
-    @post = find_post_by_id
-  end
+  def edit; end
 
   def update
-    @post = find_post_by_id
-
     if @post.update(post_params)
       redirect_to post_path(@post), notice: 'Post updated successfully'
     else
@@ -46,8 +42,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = find_post_by_id
-    post.destroy
+    @post.destroy
     redirect_to posts_path
   end
 
@@ -59,5 +54,9 @@ class PostsController < ApplicationController
 
   def find_post_by_id
     Post.find_by(id: params[:id])
+  end
+
+  def set_post
+    @post = Post.find_by!(slug: params[:id])
   end
 end
